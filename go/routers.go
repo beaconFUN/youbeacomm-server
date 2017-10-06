@@ -1,4 +1,4 @@
-package 
+package youbeacomm 
 
 import (
 	"net/http"
@@ -37,13 +37,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 var routes = Routes{
-	Route{
-		"Index",
-		"GET",
-		"/shield-9/Youbeacomm/1.0.0-alpha/",
-		Index,
-	},
-
 	Route{
 		"BeaconPassedPost",
 		"POST",
