@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-type Phrases []Phrase
+//type Phrases []Phrase
 
 type Phrase struct {
 	Id      string       `json:"id"`
@@ -17,7 +17,7 @@ type L10nString struct {
 	String string `json:"string"`
 }
 
-var FrequentPhrases = []Phrase{
+var phrases = []Phrase{
 	Phrase{
 		Id: "16286557-8ace-4023-8407-a7cc5a25f930",
 		Strings: []L10nString{
@@ -189,6 +189,27 @@ var FrequentPhrases = []Phrase{
 	},
 }
 
+var frequentIds = []string{
+	"520bf1d4-21ca-4014-a274-37cfaadf0c8b",
+	"b10cb08e-4d8f-49f6-8b75-8b86c9d98ae9",
+	"275f3d49-d32a-4e7f-90a8-ac7be054dc61",
+	"354e538a-7259-47f2-a7d3-dc72a0182d21",
+	"67965004-ae7f-446f-8dc4-082e6909aa32",
+}
+
+func filterPhrasesById(phrases []Phrase, ids []string) (filtered []Phrase) {
+	for _, v := range phrases {
+		for _, w := range ids {
+			if v.Id == w {
+				filtered = append(filtered, v)
+				break
+			}
+		}
+	}
+
+	return
+}
+
 func PhrasePhraseIdGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
@@ -203,7 +224,7 @@ func PhraseSuggestionsFrequentGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 
-	json.NewEncoder(w).Encode(FrequentPhrases)
+	json.NewEncoder(w).Encode(filterPhrasesById(phrases, frequentIds))
 
 }
 
