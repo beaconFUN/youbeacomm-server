@@ -1,9 +1,9 @@
-package youbeacomm 
+package youbeacomm
 
 import (
-	"net/http"
 	"fmt"
 	"github.com/gorilla/mux"
+	"net/http"
 )
 
 type Route struct {
@@ -85,5 +85,4 @@ var routes = Routes{
 		"/shield-9/Youbeacomm/1.0.0-alpha/phrase/suggestions/location/{deviceId}/",
 		PhraseSuggestionsLocationDeviceIdGet,
 	},
-
 }
