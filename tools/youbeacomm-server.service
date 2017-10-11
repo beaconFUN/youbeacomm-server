@@ -1,0 +1,11 @@
+[Unit]
+Description=Youbeacomm Server
+
+[Service]
+ExecStart=/home/daisuke/youbeacomm-server/main
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+
