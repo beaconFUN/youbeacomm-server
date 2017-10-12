@@ -210,12 +210,9 @@ func filterPhraseById(phrase []Phrase, id string) (*Phrase, error) {
 }
 
 func filterPhrasesById(phrases []Phrase, ids []string) (filtered []Phrase) {
-	for _, v := range phrases {
-		for _, w := range ids {
-			if v.Id == w {
-				filtered = append(filtered, v)
-				break
-			}
+	for _, id := range ids {
+		if p, err := filterPhraseById(phrases, id); err == nil {
+			filtered = append(filtered, *p)
 		}
 	}
 
