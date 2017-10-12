@@ -2,6 +2,8 @@ package youbeacomm
 
 import (
 	"encoding/json"
+	"errors"
+	"github.com/gorilla/mux"
 	"net/http"
 )
 
@@ -197,6 +199,16 @@ var frequentIds = []string{
 	"67965004-ae7f-446f-8dc4-082e6909aa32",
 }
 
+func filterPhraseById(phrase []Phrase, id string) (*Phrase, error) {
+	for _, v := range phrase {
+		if v.Id == id {
+			return &v, nil
+		}
+	}
+
+	return nil, errors.New("No phrase found.")
+}
+
 func filterPhrasesById(phrases []Phrase, ids []string) (filtered []Phrase) {
 	for _, v := range phrases {
 		for _, w := range ids {
@@ -212,7 +224,15 @@ func filterPhrasesById(phrases []Phrase, ids []string) (filtered []Phrase) {
 
 func PhrasePhraseIdGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+
+	vars := mux.Vars(r)
+
+	if phrase, err := filterPhraseById(phrases, vars["phraseId"]); err == nil {
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode(phrase)
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+	}
 }
 
 func PhrasePhraseIdResponsesGet(w http.ResponseWriter, r *http.Request) {
