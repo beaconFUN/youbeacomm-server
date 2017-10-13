@@ -194,6 +194,45 @@ var phrases = []Phrase{
 			},
 		},
 	},
+	Phrase{
+		Id: "582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "いいですよ。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Okay.",
+			},
+		},
+	},
+	Phrase{
+		Id: "d55924d6-13d8-4926-9801-cad754d5c7ff",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "ごめんなさい。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Sorr.",
+			},
+		},
+	},
+	Phrase{
+		Id: "66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "今忙しいので。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Sorry, I'm busy right now.",
+			},
+		},
+	},
 }
 
 var frequentIds = []string{
