@@ -19,6 +19,11 @@ type L10nString struct {
 	String string `json:"string"`
 }
 
+type PhraseResponse struct {
+	Id        string   `json:"id"`
+	Responses []string `json:"responses"`
+}
+
 var phrases = []Phrase{
 	Phrase{
 		Id: "16286557-8ace-4023-8407-a7cc5a25f930",
