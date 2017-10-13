@@ -19,6 +19,11 @@ type L10nString struct {
 	String string `json:"string"`
 }
 
+type PhraseResponse struct {
+	Id        string   `json:"id"`
+	Responses []string `json:"responses"`
+}
+
 var phrases = []Phrase{
 	Phrase{
 		Id: "16286557-8ace-4023-8407-a7cc5a25f930",
@@ -189,6 +194,88 @@ var phrases = []Phrase{
 			},
 		},
 	},
+	Phrase{
+		Id: "582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "いいですよ。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Okay.",
+			},
+		},
+	},
+	Phrase{
+		Id: "d55924d6-13d8-4926-9801-cad754d5c7ff",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "ごめんなさい。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Sorr.",
+			},
+		},
+	},
+	Phrase{
+		Id: "66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "今忙しいので。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Sorry, I'm busy right now.",
+			},
+		},
+	},
+}
+
+var responseIds = []PhraseResponse{
+	PhraseResponse{
+		Id: "520bf1d4-21ca-4014-a274-37cfaadf0c8b",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "b10cb08e-4d8f-49f6-8b75-8b86c9d98ae9",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "275f3d49-d32a-4e7f-90a8-ac7be054dc61",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "354e538a-7259-47f2-a7d3-dc72a0182d21",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "67965004-ae7f-446f-8dc4-082e6909aa32",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
 }
 
 var frequentIds = []string{
@@ -236,7 +323,33 @@ func PhrasePhraseIdGet(w http.ResponseWriter, r *http.Request) {
 
 func PhrasePhraseIdResponsesGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+
+	vars := mux.Vars(r)
+
+	phrase, err := filterPhraseById(phrases, vars["phraseId"])
+
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(&[]Phrase{})
+		return
+	}
+
+	// Should be moved to SQL
+	var resps []string
+	for _, v := range responseIds {
+		if v.Id == phrase.Id {
+			resps = append(resps, v.Responses...)
+		}
+	}
+
+	if len(resps) == 0 {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(&[]Phrase{})
+		return
+	}
+
 	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(filterPhrasesById(phrases, resps))
 }
 
 func PhraseSuggestionsFrequentGet(w http.ResponseWriter, r *http.Request) {
