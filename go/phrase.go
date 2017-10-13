@@ -224,12 +224,14 @@ func PhrasePhraseIdGet(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
 
-	if phrase, err := filterPhraseById(phrases, vars["phraseId"]); err == nil {
-		w.WriteHeader(http.StatusOK)
-		json.NewEncoder(w).Encode(phrase)
-	} else {
+	phrase, err := filterPhraseById(phrases, vars["phraseId"])
+
+	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 	}
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(phrase)
 }
 
 func PhrasePhraseIdResponsesGet(w http.ResponseWriter, r *http.Request) {
