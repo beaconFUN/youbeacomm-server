@@ -323,7 +323,33 @@ func PhrasePhraseIdGet(w http.ResponseWriter, r *http.Request) {
 
 func PhrasePhraseIdResponsesGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+
+	vars := mux.Vars(r)
+
+	phrase, err := filterPhraseById(phrases, vars["phraseId"])
+
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(&[]Phrase{})
+		return
+	}
+
+	// Should be moved to SQL
+	var resps []string
+	for _, v := range responseIds {
+		if v.Id == phrase.Id {
+			resps = append(resps, v.Responses...)
+		}
+	}
+
+	if len(resps) == 0 {
+		w.WriteHeader(http.StatusNotFound)
+		json.NewEncoder(w).Encode(&[]Phrase{})
+		return
+	}
+
 	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(filterPhrasesById(phrases, resps))
 }
 
 func PhraseSuggestionsFrequentGet(w http.ResponseWriter, r *http.Request) {
