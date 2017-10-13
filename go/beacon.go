@@ -5,6 +5,9 @@ import (
 )
 
 type Beacon struct {
+	ProximityUUID string `json:"proximityUUID"`
+	Major         int    `json:"major"`
+	Minor         int    `json:"minor"`
 }
 
 func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
