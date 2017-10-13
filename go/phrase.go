@@ -235,6 +235,49 @@ var phrases = []Phrase{
 	},
 }
 
+var responseIds = []PhraseResponse{
+	PhraseResponse{
+		Id: "520bf1d4-21ca-4014-a274-37cfaadf0c8b",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "b10cb08e-4d8f-49f6-8b75-8b86c9d98ae9",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "275f3d49-d32a-4e7f-90a8-ac7be054dc61",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "354e538a-7259-47f2-a7d3-dc72a0182d21",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "67965004-ae7f-446f-8dc4-082e6909aa32",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+}
+
 var frequentIds = []string{
 	"520bf1d4-21ca-4014-a274-37cfaadf0c8b",
 	"b10cb08e-4d8f-49f6-8b75-8b86c9d98ae9",
