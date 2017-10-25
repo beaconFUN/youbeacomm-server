@@ -18,7 +18,8 @@ type PassedBeacon struct {
 
 func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
 
-	if r.Body == nil {
+	if r.Header.Get("Content-Length") == "0" {
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
