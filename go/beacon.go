@@ -17,12 +17,12 @@ type PassedBeacon struct {
 }
 
 func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 
 	if r.Body == nil {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	var beacon PassedBeacon
 	json.NewDecoder(r.Body).Decode(&beacon)
 
