@@ -17,15 +17,20 @@ type PassedBeacon struct {
 }
 
 func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 
 	if r.Header.Get("Content-Length") == "0" {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	var beacon PassedBeacon
 	json.NewDecoder(r.Body).Decode(&beacon)
+
+	if beacon.DeviceId == "" || beacon.Beacon.ProximityUUID == "" {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 
 	/*
 		Save proximity info to DB
