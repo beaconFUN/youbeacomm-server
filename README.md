@@ -1,6 +1,6 @@
 # youbeacomm-server
 
 ## Install
-1. `go get`
-2. `go build main.go`
-3. Copy service unit file to systemd directory.
+1. Make sure golang is installed and run `go get`.
+2. Copy [service unit file](tools/youbeacomm-server.service) to systemd directory.
+2. Run `tools/deploy_current`.
