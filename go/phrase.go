@@ -216,7 +216,7 @@ var phrases = []Phrase{
 			},
 			L10nString{
 				Lang:   "en",
-				String: "Sorr.",
+				String: "Sorry.",
 			},
 		},
 	},
