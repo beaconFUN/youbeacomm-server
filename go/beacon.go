@@ -2,6 +2,7 @@ package youbeacomm
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -14,6 +15,20 @@ type Beacon struct {
 type PassedBeacon struct {
 	DeviceId string `json:"device"`
 	Beacon   Beacon `json:"beacon"`
+}
+
+var beaconLogs []Beacon = make([]Beacon, 0, 3)
+
+func getBeaconLog(s int) Beacon {
+	if s < 0 || len(beaconLogs) <= s {
+		return Beacon{}
+	}
+
+	return beaconLogs[s]
+}
+
+func GetLatestBeaconLog(s int) Beacon {
+	return getBeaconLog(len(beaconLogs) - s - 1)
 }
 
 func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
@@ -35,6 +50,7 @@ func BeaconPassedPost(w http.ResponseWriter, r *http.Request) {
 	/*
 		Save proximity info to DB
 	*/
-
+	beaconLogs = append(beaconLogs, beacon.Beacon)
+	fmt.Println(beaconLogs)
 	w.WriteHeader(http.StatusOK)
 }
