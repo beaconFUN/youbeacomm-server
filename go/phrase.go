@@ -30,11 +30,11 @@ var phrases = []Phrase{
 		Strings: []L10nString{
 			L10nString{
 				Lang:   "ja",
-				String: "おすすめを教えてください。",
+				String: "朝市でのおすすめのスポットは何ですか？",
 			},
 			L10nString{
 				Lang:   "en",
-				String: "What do you recommend?",
+				String: "What do you recommend at Morning Market?",
 			},
 		},
 	},
@@ -143,6 +143,71 @@ var phrases = []Phrase{
 		},
 	},
 	Phrase{
+		Id: "477948a4-a6bd-4214-a6a3-fad3a25cc597",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "写真を撮ってもらえますか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Could you take a picture?",
+			},
+		},
+	},
+	Phrase{
+		Id: "28c7acab-d366-493a-8ac9-b1380570b4e8",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "一番近いトイレはどこですか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Where is the nearest toilet?",
+			},
+		},
+	},
+	Phrase{
+		Id: "8216d5fb-4f3c-4fb7-8bd7-0559b82215d6",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "ここに無料のWi-Fiはありますか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Can I use free Wi-Fi here?",
+			},
+		},
+	},
+	Phrase{
+		Id: "4603cb11-d2df-4665-ba3d-a482a50824d4",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "次のバスはいつですか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "When is the next bus?",
+			},
+		},
+	},
+	Phrase{
+		Id: "46c70b37-516e-4da2-8ff6-e377006b0fe4",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "一番近いコンビニはどこですか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Where is the nearest convenience store?",
+			},
+		},
+	},
+	Phrase{
 		Id: "0cf79b03-d8fd-41e2-88cb-f9ff6af5a0c1",
 		Strings: []L10nString{
 			L10nString{
@@ -207,12 +272,41 @@ var phrases = []Phrase{
 			},
 		},
 	},
+	Phrase{
+		Id: "ffc1358c-e1d0-4a4d-ba6a-ad06310671eb",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "駅二市場のイカ釣りです。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Squid fishing at Ekini Market is recommended.",
+			},
+		},
+	},
+	Phrase{
+		Id: "70676dad-cd70-443a-be19-4b4e7eacd9d2",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "ウニやイクラの海鮮丼です。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "A bowl of rice with sea urchin and salmon roe on top is recommended.",
+			},
+		},
+	},
 }
 
 var responseIds = []PhraseResponse{
 	PhraseResponse{
-		Id:        "16286557-8ace-4023-8407-a7cc5a25f930",
-		Responses: []string{},
+		Id: "16286557-8ace-4023-8407-a7cc5a25f930",
+		Responses: []string{
+			"ffc1358c-e1d0-4a4d-ba6a-ad06310671eb",
+			"70676dad-cd70-443a-be19-4b4e7eacd9d2",
+		},
 	},
 	PhraseResponse{
 		Id: "520bf1d4-21ca-4014-a274-37cfaadf0c8b",
@@ -273,9 +367,57 @@ var responseIds = []PhraseResponse{
 			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
 		},
 	},
+	PhraseResponse{
+		Id: "520bf1d4-21ca-4014-a274-37cfaadf0c8b",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "b10cb08e-4d8f-49f6-8b75-8b86c9d98ae9",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "275f3d49-d32a-4e7f-90a8-ac7be054dc61",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "354e538a-7259-47f2-a7d3-dc72a0182d21",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
+	PhraseResponse{
+		Id: "67965004-ae7f-446f-8dc4-082e6909aa32",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
+		},
+	},
 }
 
 var frequentIds = []string{
+	"477948a4-a6bd-4214-a6a3-fad3a25cc597",
+	"28c7acab-d366-493a-8ac9-b1380570b4e8",
+	"8216d5fb-4f3c-4fb7-8bd7-0559b82215d6",
+	"4603cb11-d2df-4665-ba3d-a482a50824d4",
+	"46c70b37-516e-4da2-8ff6-e377006b0fe4",
+}
+
+var locationalIds = []string{
 	"16286557-8ace-4023-8407-a7cc5a25f930",
 	"520bf1d4-21ca-4014-a274-37cfaadf0c8b",
 	"275f3d49-d32a-4e7f-90a8-ac7be054dc61",
