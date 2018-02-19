@@ -427,6 +427,14 @@ var locationalIds = map[int64][]string{
 		"91a16bc8-fdce-4b4d-bc09-cc5431cab9c7",
 		"354e538a-7259-47f2-a7d3-dc72a0182d21",
 	},
+	int64(0x0001)<<16 + int64(0x0001): { // Market
+		"16286557-8ace-4023-8407-a7cc5a25f930",
+		"520bf1d4-21ca-4014-a274-37cfaadf0c8b",
+		"275f3d49-d32a-4e7f-90a8-ac7be054dc61",
+		"dec26bae-fdf5-49fe-80e6-dde45e12a3ac",
+		"91a16bc8-fdce-4b4d-bc09-cc5431cab9c7",
+		"354e538a-7259-47f2-a7d3-dc72a0182d21",
+	},
 }
 
 func filterPhraseById(phrase []Phrase, id string) (*Phrase, error) {
