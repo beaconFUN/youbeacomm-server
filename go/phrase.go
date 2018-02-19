@@ -299,6 +299,32 @@ var phrases = []Phrase{
 			},
 		},
 	},
+	Phrase{
+		Id: "4c177f10-6bad-41e8-9548-27ba7a3471c1",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "検知したビーコン: ホテル",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Detected Beacon: Hotel",
+			},
+		},
+	},
+	Phrase{
+		Id: "699db86d-5f17-4c6f-bb20-b662ede5aa37",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "検知したビーコン: 駅",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Detected Beacon: Station",
+			},
+		},
+	},
 }
 
 var responseIds = []PhraseResponse{
@@ -426,6 +452,12 @@ var locationalIds = map[int64][]string{
 		"dec26bae-fdf5-49fe-80e6-dde45e12a3ac",
 		"91a16bc8-fdce-4b4d-bc09-cc5431cab9c7",
 		"354e538a-7259-47f2-a7d3-dc72a0182d21",
+	},
+	int64(0x0000)<<16 + int64(0xFFFF): { // Hotel
+		"4c177f10-6bad-41e8-9548-27ba7a3471c1",
+	},
+	int64(0xFFFF)<<16 + int64(0xFFFF): { // Station
+		"699db86d-5f17-4c6f-bb20-b662ede5aa37",
 	},
 	int64(0x0001)<<16 + int64(0x0001): { // Market
 		"16286557-8ace-4023-8407-a7cc5a25f930",
