@@ -187,11 +187,11 @@ var phrases = []Phrase{
 		Strings: []L10nString{
 			L10nString{
 				Lang:   "ja",
-				String: "次のバスはいつですか？",
+				String: "新函館北斗駅に行くにはどうすればいいですか？",
 			},
 			L10nString{
 				Lang:   "en",
-				String: "When is the next bus?",
+				String: "How can I get to Shin-Hakodate-Hokuto Station?",
 			},
 		},
 	},
@@ -300,15 +300,54 @@ var phrases = []Phrase{
 		},
 	},
 	Phrase{
+		Id: "5169fe03-7e6e-4ac9-836b-543f3259b162",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "朝ご飯のおすすめはありますか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "What do you recommend for breakfast?",
+			},
+		},
+	},
+	Phrase{
+		Id: "05503fdd-c145-463b-86f9-c0825824a147",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "近くにXXXというパン屋さんがありますよ。",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "How about visiting the bakery \"XXX\" near here?",
+			},
+		},
+	},
+	Phrase{
+		Id: "18da1eea-cf80-4710-8cb1-f730bbd2f5ce",
+		Strings: []L10nString{
+			L10nString{
+				Lang:   "ja",
+				String: "チェックアウトした後、荷物を預かってもらえますか？",
+			},
+			L10nString{
+				Lang:   "en",
+				String: "Could you keep my baggage for a few hours?",
+			},
+		},
+	},
+	Phrase{
 		Id: "4c177f10-6bad-41e8-9548-27ba7a3471c1",
 		Strings: []L10nString{
 			L10nString{
 				Lang:   "ja",
-				String: "検知したビーコン: ホテル",
+				String: "[Debug] 検知したビーコン: ホテル",
 			},
 			L10nString{
 				Lang:   "en",
-				String: "Detected Beacon: Hotel",
+				String: "[Debug] Detected Beacon: Hotel",
 			},
 		},
 	},
@@ -317,11 +356,11 @@ var phrases = []Phrase{
 		Strings: []L10nString{
 			L10nString{
 				Lang:   "ja",
-				String: "検知したビーコン: 駅",
+				String: "[Debug] 検知したビーコン: 駅",
 			},
 			L10nString{
 				Lang:   "en",
-				String: "Detected Beacon: Station",
+				String: "[Debug] Detected Beacon: Station",
 			},
 		},
 	},
@@ -434,6 +473,20 @@ var responseIds = []PhraseResponse{
 			"66504b47-db33-4f1a-9629-ec64c1a2d7d4",
 		},
 	},
+	PhraseResponse{
+		Id: "5169fe03-7e6e-4ac9-836b-543f3259b162",
+		Responses: []string{
+			"70676dad-cd70-443a-be19-4b4e7eacd9d2",
+			"05503fdd-c145-463b-86f9-c0825824a147",
+		},
+	},
+	PhraseResponse{
+		Id: "18da1eea-cf80-4710-8cb1-f730bbd2f5ce",
+		Responses: []string{
+			"582058db-ac4b-4baf-b9fe-b6bdc23e81fa",
+			"d55924d6-13d8-4926-9801-cad754d5c7ff",
+		},
+	},
 }
 
 var frequentIds = []string{
@@ -455,9 +508,17 @@ var locationalIds = map[int64][]string{
 	},
 	int64(0x0000)<<16 + int64(0xFFFF): { // Hotel
 		"4c177f10-6bad-41e8-9548-27ba7a3471c1",
+		"5169fe03-7e6e-4ac9-836b-543f3259b162",
+		"46c70b37-516e-4da2-8ff6-e377006b0fe4",
+		"18da1eea-cf80-4710-8cb1-f730bbd2f5ce",
+		"8216d5fb-4f3c-4fb7-8bd7-0559b82215d6",
 	},
 	int64(0xFFFF)<<16 + int64(0xFFFF): { // Station
 		"699db86d-5f17-4c6f-bb20-b662ede5aa37",
+		"4603cb11-d2df-4665-ba3d-a482a50824d4",
+		"28c7acab-d366-493a-8ac9-b1380570b4e8",
+		"8216d5fb-4f3c-4fb7-8bd7-0559b82215d6",
+		"91a16bc8-fdce-4b4d-bc09-cc5431cab9c7",
 	},
 	int64(0x0001)<<16 + int64(0x0001): { // Market
 		"16286557-8ace-4023-8407-a7cc5a25f930",
